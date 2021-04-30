@@ -133,7 +133,7 @@ authRouter.put('/notes/:id', bearerAuth, async (req, res, next) => {
 authRouter.delete('/notes/:id', bearerAuth, async (req, res, next) => {
   try {
     const id = req.params.id;
-    const newNote = { note: req.body };
+    // const newNote = { note: req.body };
     await User.findOne({ username }, function(err, entry){
       if(err){
         throw new Error(err.message);

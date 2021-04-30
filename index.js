@@ -22,31 +22,36 @@ let token = {};
 
 const prompt = inquirer.createPromptModule();
 
-const signInArr = ['sign in', 'sign up'];
+const signInArr = ['sign in 🔐', 'sign up 🔏'];
 
-const crudArr = ['Create', 'Read', 'Update', 'Delete'];
+const crudArr = ['Saved notes 👀', 'Create note 📝 ', 'Update note 🖍', 'Delete note ❌'];
 
 let noteArr = [];
 let tempNoteArr = [];
 let tempIdArr = [];
 
 function mapNotes(noteArr){
-  noteArr.forEach(noteObj => tempNoteArr.push(noteObj.note));
+  noteArr.forEach(noteObj => {
+    tempNoteArr.push(noteObj.note);
+  });
 }
+
 function mapNoteIds(noteArr){
-  noteArr.forEach(noteObj => tempIdArr.push(noteObj._id));
-}
+  noteArr.forEach(noteObj => {
+    tempIdArr.push(noteObj._id);
+  });
+}  
 
 const updateMenu = [
   {
     type: 'rawlist',
     name: 'update',
-    message: 'Select a note to replace:',
+    message: 'Select a note to update:',
     choices: tempNoteArr,
   },
   {
     name: 'newNote',
-    message: 'Enter updated note:'
+    message: 'Update note:'
   }
 ]
 
@@ -63,7 +68,7 @@ const accountQuestions = [
   {
     type: 'rawlist',
     name: 'inOrOn',
-    message: 'Already have an account?',
+    message: 'Sign in or create a new account:',
     choices: signInArr,
   },
   {
@@ -93,50 +98,69 @@ const enterNote = [
   },
 ]
 
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩')
+console.log('🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦')
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩')
+console.log('🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦')
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩')
+console.log('🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦')
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩')
+console.log('🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦')
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩')
+console.log('🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦')
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩')
+console.log('🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦')
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩')
+console.log('🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦')
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩')
+console.log('🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦')
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩')
+console.log('🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦')
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩')
+console.log('🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦')
+console.log('🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n')
+
 prompt(accountQuestions)
   .then(answers => {
     const inOrOn = answers.inOrOn;
     const username = answers.username;
     const password = answers.pw;
-    if(inOrOn === 'sign in'){
+    if(inOrOn === 'sign in 🔐'){
       superagent.post('http://localhost:3333/signin')
       .auth(username, password)
       .then(response => {
         token = response.body.token;
         if(response.body.user.notes){
-          console.log(`Welcome, ${response.body.user.username}!`);
+          noteArr = response.body.user.notes;
+          mapNotes(noteArr);
+          mapNoteIds(noteArr);
+          console.log(`\n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨`);
+          console.log(` ✨✨✨✨✨✨✨✨✨✨✨✨ Welcome, ${response.body.user.username}! ✨✨✨✨✨✨✨✨✨✨✨✨✨`);
+          console.log(`✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n`);
           crudPrompt();
         } else {
-          console.log('No notes...');
+          console.log(`\n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨`);
+          console.log(` ✨✨✨✨✨✨✨✨✨✨✨✨ Welcome, ${response.body.user.username}! ✨✨✨✨✨✨✨✨✨✨✨✨✨`);
+          console.log(`✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n`);
           crudPrompt();
         }
       })
       .catch(err => console.log(err.message));
-    } else if(inOrOn === 'sign up'){
+    } else if(inOrOn === 'sign up 🔏'){
       superagent.post('http://localhost:3333/signup')
       .send({ username, password })
       .then(() => {
-        console.log('Account created!')
+        console.log('Account created! ✅')
       })
       .then(() => {
         superagent.post('http://localhost:3333/signin')
         .auth(username, password)
         .then(response2 => {
           token = response2.body.token;
-          if(response2.body.user.notes){
-            // noteArr = response.body.notes;
-            // mapNotes(noteArr);
-            // mapNoteIds(noteArr);
-            noteArr = response2.body.user.notes;
-            console.log(noteArr, response2.body.user.notes);
-            mapNotes(noteArr);
-            mapNoteIds(noteArr);
-            console.log(`Welcome, ${response2.body.user.username}!`);
+          console.log(`\n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨`);
+          console.log(` ✨✨✨✨✨✨✨✨✨✨✨✨ Welcome, ${response2.body.user.username}! ✨✨✨✨✨✨✨✨✨✨✨✨✨`);
+          console.log(`✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n`);
             crudPrompt();
-          } else {
-            console.log('No notes...');
-            crudPrompt();
-          }
         })
         .catch(err => console.log(err.message));
       })
@@ -145,11 +169,14 @@ prompt(accountQuestions)
   });
 
   function crudPrompt(){
-    prompt(crudMenu).then(answers => handleCrud(answers)).catch(err => (console.log(err.message)));
+    prompt(crudMenu).then(answers => handleCrud(answers)).catch(err => {
+      console.log('oops... something went wrong! 🤷🏽‍♂️');
+      crudPrompt();
+    });
   }
 
   function handleCrud(selection){
-    if(selection.crud.toUpperCase() === 'CREATE'){
+    if(selection.crud === 'Create note 📝 '){
       prompt(enterNote)
       .then(answers => {
         const note = answers.note;
@@ -158,10 +185,10 @@ prompt(accountQuestions)
         .set('Authorization', `Bearer ${token}`)
         .then(response => {
           noteArr = response.body.notes;
-          mapNotes(noteArr);
-          mapNoteIds(noteArr);
-          console.log(noteArr);
-          console.log('Saved your note!');
+          const idx = response.body.notes.length - 1;
+          tempNoteArr.push(noteArr[idx].note)
+          tempIdArr.push(noteArr[idx]._id)
+          console.log('\nNote created successfully ✅\n');
           crudPrompt();
         })
         .catch(err => {
@@ -170,11 +197,17 @@ prompt(accountQuestions)
       })
     }
 
-    if(selection.crud.toUpperCase() === 'READ'){
+    if(selection.crud === 'Saved notes 👀'){
         superagent.get('http://localhost:3333/notes')
         .set('Authorization', `Bearer ${token}`)
         .then(response => {
-          console.log('THIS IS YOUR CONSOLE', response.body, '_______________________');
+          console.log('\n⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️')
+          console.log('⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️ My Notes ⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️')
+          console.log('⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️\n')
+          tempNoteArr.forEach(note => console.log(note));
+          console.log('\n⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️')
+          console.log('⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️')
+          console.log('⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️\n')
           crudPrompt();
         })
         .catch(err => {
@@ -182,8 +215,7 @@ prompt(accountQuestions)
         })
     }
 
-    if(selection.crud.toUpperCase() === 'UPDATE'){
-      console.log('ARRAYS', tempNoteArr, tempIdArr, noteArr)
+    if(selection.crud === 'Update note 🖍'){
       prompt(updateMenu)
         .then(answers => {
           const note = answers.newNote;
@@ -193,10 +225,8 @@ prompt(accountQuestions)
           .send({note})
           .set('Authorization', `Bearer ${token}`)
           .then(response => {
-            noteArr = response.body.notes;
-            mapNotes(noteArr);
-            mapNoteIds(noteArr);
-            console.log(response.body.notes);
+            tempNoteArr.splice(tempNoteArr.indexOf(update), 1, note)
+            console.log('\nUpdated your note ✅\n');
             crudPrompt();
           })
           .catch(err => {
@@ -205,19 +235,20 @@ prompt(accountQuestions)
         })
     }
 
-    if(selection.crud.toUpperCase() === 'DELETE'){
+    if(selection.crud === 'Delete note ❌'){
       prompt(deleteMenu)
         .then(answers => {
           const del = answers.del;
           const id = tempIdArr[tempNoteArr.indexOf(del)];
           superagent.delete(`http://localhost:3333/notes/${id}`)
-          .send({id})
           .set('Authorization', `Bearer ${token}`)
           .then(response => {
             noteArr = response.body.notes;
-            mapNotes(noteArr);
-            mapNoteIds(noteArr);
-            console.log(response.body.notes);
+            // mapNotes(noteArr);
+            // mapNoteIds(noteArr);
+            tempIdArr.splice(tempNoteArr.indexOf(del), 1);
+            tempNoteArr.splice(tempNoteArr.indexOf(del), 1);
+            console.log('\nDeleted your note ✅\n');
             crudPrompt();
           })
           .catch(err => {
