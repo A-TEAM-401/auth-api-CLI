@@ -14,7 +14,6 @@ let users = {
   user: { username: 'user', password: 'password', notes: [], role: 'user' },
 };
 
-
 // Pre-load our database with fake users
 beforeAll(async (done) => {
   await new Users(users.admin).save();
