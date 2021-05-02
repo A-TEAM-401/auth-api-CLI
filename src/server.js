@@ -9,8 +9,6 @@ const cors = require('cors');
 const errorHandler = require('./error-handlers/500.js');
 const notFound = require('./error-handlers/404.js');
 const authRoutes = require('./routes/auth-routes.js');
-// const v1Routes = require('./routes/v1.js');
-// const v2Routes = require('./routes/v2.js');
 
 // Prepare the express app
 const app = express();
@@ -24,18 +22,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use(authRoutes);
-// app.use('/api/v1', v1Routes);
-// app.use('/api/v2', v2Routes);
 
 // Catchalls
 app.use('*', notFound);
 app.use(errorHandler);
-
-process.on('uncaughtException', function (exception) {
-  console.log(exception); // to see your exception details in the console
-  // if you are on production, maybe you can send the exception details to your
-  // email as well ?
-});
 
 module.exports = {
   server: app,

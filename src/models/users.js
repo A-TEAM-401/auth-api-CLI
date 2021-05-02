@@ -11,10 +11,7 @@ const users = new mongoose.Schema({
   notes: [noteSchema],
   role: { type: String, required: true, default: 'user', enum: ['user', 'writer', 'editor', 'admin'] },
 }, { toJSON: { virtuals: true } });
-// }, { toObject: { getters: true } }); // What would this do if we use this instead of just });
 
-// Adds a virtual field to the schema. We can see it, but it never persists
-// So, on every user object ... this.token is now readable!
 users.virtual('token').get(function () {
   let tokenObject = {
     username: this.username,
