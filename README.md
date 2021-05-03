@@ -22,7 +22,7 @@ To run the application, you must create a .env file at the root level, with the 
 
 ```
 PORT=3333
-MONGODB_URI=mongodb+srv://dbUser:3231@cluster0.oodoc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://dbUser:<password>@cluster0.oodoc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 SECRET=coolsecret
 SERVER=http://localhost:3333
 ```
