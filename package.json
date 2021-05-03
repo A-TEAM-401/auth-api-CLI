@@ -22,7 +22,6 @@
     "bcrypt": "^5.0.1",
     "boxen": "^5.0.1",
     "chalk-animation": "^1.6.0",
-    "clear": "^0.1.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "eslint": "^7.25.0",

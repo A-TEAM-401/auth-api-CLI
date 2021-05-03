@@ -7,7 +7,7 @@ const chalkAnimation = require('chalk-animation');
 const figlet = require('figlet');
 const gradient = require('gradient-string');
 const clear = require('clear');
-const api_server = process.env.SERVER;
+const apiServer = process.env.SERVER;
 
 // Start up DB Server
 const mongoose = require('mongoose');
@@ -70,9 +70,10 @@ const main = async () => {
         message: 'Enter your username:',
       },
       {
-        type: 'password',
-        name: 'pw',
-        message: 'Enter your password:',
+			      type: 'password',
+			      mask: '*',			
+			      message: 'Enter a password',
+			      name: 'pw'
       }
     ]
 
@@ -92,14 +93,14 @@ const main = async () => {
 
     function crudClear() {
       clear();
-      figlet('CLI Note List with AUTH', function (err, data) {
+      figlet('CLI NOTES', function (err, data) {
         if (err) {
           chalkAnimation.neon('Something went wrong...');
           console.dir(err);
           return;
         }
         console.log(gradient.rainbow(data));
-        console.log(gradient.rainbow('~~~~~===================================================================================================~~~~~'));
+        console.log(gradient.rainbow('~=================================================~'));
       });
     }
 
@@ -137,7 +138,7 @@ const main = async () => {
         prompt(enterNote)
           .then(answers => {
             const note = answers.note;
-            superagent.post(`${api_server}/notes`)
+            superagent.post(`${apiServer}/notes`)
               .send({
                 note
               })
@@ -172,7 +173,7 @@ const main = async () => {
             const note = answers.newNote;
             const update = answers.update;
             const id = tempIdArr[tempNoteArr.indexOf(update)];
-            superagent.put(`${api_server}/notes/${id}`)
+            superagent.put(`${apiServer}/notes/${id}`)
               .send({
                 note
               })
@@ -203,7 +204,7 @@ const main = async () => {
           .then(answers => {
             const del = answers.del;
             const id = tempIdArr[tempNoteArr.indexOf(del)];
-            superagent.delete(`${api_server}/notes/${id}`)
+            superagent.delete(`${apiServer}/notes/${id}`)
               .set('Authorization', `Bearer ${token}`)
               .then(response => {
                 noteArr = response.body.notes;
@@ -233,10 +234,10 @@ const main = async () => {
       // READ
       if (selection.crud === 'Saved notes 👀') {
         crudClear();
-        superagent.get(`${api_server}/notes`).set('Authorization', `Bearer ${token}`)
+        superagent.get(`${apiServer}/notes`).set('Authorization', `Bearer ${token}`)
           .then(response => {
             console.log(`\n`, response.body.map(item => item.note), `\n`);
-            console.log(gradient.rainbow('~~~~~===================================================================================================~~~~~'));
+            console.log(gradient.rainbow('~=================================================~'));
             crudPrompt();
           }).catch(err => console.error(err.message));
       }
@@ -259,8 +260,9 @@ const main = async () => {
       //SIGNIN
       const signIn = async (username, password) => {
         try {
-          const response = await superagent.post(`${api_server}/signin`).auth(username, password);
+          const response = await superagent.post(`${apiServer}/signin`).auth(username, password);
           token = response.body.token;
+          crudClear();
           welcomeUser(response);
           if (response.body.user.notes) {
             noteArr = response.body.user.notes;
@@ -277,7 +279,7 @@ const main = async () => {
       //SIGNUP
       const signup = async (username, password) => {
         try {
-          const response = await superagent.post(`${api_server}/signup`).send({
+          const response = await superagent.post(`${apiServer}/signup`).send({
             username,
             password
           })
@@ -322,7 +324,7 @@ const main = async () => {
 
     setTimeout(() => {
 
-      figlet('CLI Note List with AUTH', function (err, data) {
+      figlet('CLI NOTES', function (err, data) {
 
         if (err) {
           chalkAnimation.neon('Something went wrong...');
