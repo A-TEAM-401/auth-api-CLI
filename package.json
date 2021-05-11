@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node cli.js",
     "watch": "nodemon index.js",
     "lint": "eslint **/*.js",
     "test": "jest --coverage",
